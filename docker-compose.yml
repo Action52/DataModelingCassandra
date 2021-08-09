@@ -1,0 +1,14 @@
+version: '2'
+services:
+  cassandra:
+    container_name: cassandra-project
+    image: cassandra:3.11.8
+    volumes:
+      - "./cassandra_data:/var/lib/cassandra/data"
+    ports:
+      - 9042:9042
+    environment:
+      - CASSANDRA_START_RPC=true
+      - CASSANDRA_CLUSTER_NAME=Sparkify
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+      - CASSANDRA_DC=datacenter
